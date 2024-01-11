@@ -442,8 +442,8 @@ pre {
         <center>
             <div class="author-row-new">
                 <a href="https://mbronars.github.io/">Matthew Bronars</a>,
-                <a href="https://www.linkedin.com/in/max-balsells">Shuo Cheng<sup>3</sup></a>,
-                <a href="https://abhishekunique.github.io">Danfei Xu<sup>3</sup></a>
+                <a href="https://sites.google.com/view/shuocheng">Shuo Cheng</a>,
+                <a href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu</a>
             </div>
         </center>
         <center>
@@ -452,7 +452,7 @@ pre {
         </div>
 
         <div class="affil-row">
-            <div class="venue text-center"><b>R-AL (under submission)</b></div>
+            <div class="venue text-center"><b>RA-L (under submission)</b></div>
         </div>
 
         </center>
@@ -473,16 +473,18 @@ pre {
     <section id="teaser-image">
         <center>
             <figure>
-                <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
-                    <source src="materials/huge_teaser_v6_short.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <a>
+                    <img width="100%" src="materials/teaser.png">
+                </a>
+                <p class="caption">
+                    Legibility Diffuser is an off-line imitation learning algorithm that can learn to generate the most legible modes from a multi-modal, multi-task dataset of human demonstrations.
+                </p> <br>
             </figure>
 
         </center>
     </section>
     
-    <section id="results-image">
+    <!-- <section id="results-image">
         <center>
             <figure>
                 <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
@@ -492,7 +494,7 @@ pre {
             </figure>
 
         </center>
-    </section>
+    </section> -->
 
 
     
@@ -533,43 +535,6 @@ pre {
                     </center>
                 </section>
             </center>
-            <!--
-                <h3>Goal Selector Learning from Human Preferences</h3>
-                        <div class="flex-row">
-                            
-                            <p> 
-                                Existing diffusion models are often trained on massive datasets with a vast amounts of computational resources. In this paper, we explore and present tools on how we may utilize probabilistic composition of as an algebra to repurpose diffusion models, <b>without any finetuning</b>, for variety of downstream tasks.  
-                                <br>
-                                <br>
-                                Consider two probability distributions $q^1(x)$ and $q^2(x)$, each represented with a different diffusion model.  Can we draw samples from the product distribution $q^{\textup{prod}}(x) \propto q^1(x)q^2(x)$ specified by each diffusion model? One potential solution is to note that the diffusion process encodes the noisy gradients of each distribution, letting us use the <a href="https://energy-based-model.github.io/Compositional-Visual-Generation-with-Composable-Diffusion-Models/">sum of the scores of each diffusion process</a> to compose these models. While this approach can be effective, it is not completely mathematically accurate. To correctly sample from a reverse diffusion corresponding to $q^{\textup{prod}}(x)$, at each noise timestep $t$, we must compute the score:
-                                \[ \nabla_{x}\log \tilde{q}_{t}^{\textup{ prod}}(x_t) = \nabla_x\log  \left(\int
-                dx_{0}
-                q^{1}(x_{0})q^2(x_{0})~ q(x_t|x_{0})\right).\]
-                                Directly summing up the predicted scores of each separate diffusion model instead gives us the score:
-                                \[ \nabla_{x}\log q_{t}^{\textup{prod}}(x_t)
-                = 
-                \nabla_{x}\log  \left(\int dx_0 q^1(x_0)q(x_t|x_0)\right)+\nabla_{x}\log  \left(\int dx_0 q^2(x_0)q(x_t|x_0)\right).\]
-                                When the $t > 0$, the above expressions are not equal, and thus sample from the incorrect reverse diffusion process for $q^{\textup{prod}}(x)$. To address this theoretical issue, we propose two methodological contributions to properly sample across a set of different compositions of diffusion models (see our paper for analysis of why other forms of composition fail):
-                            </p>
-                            <p>
-                                <b>Sampling from Composed Diffusion Models using Annealed MCMC:</b> While the score estimate $\nabla_{x}\log q_{t}^{\textup{prod}}(x_t)$ does not correspond to the correct score estimate necessary to sample from the reverse diffusion process for $q_{t}^{\textup{prod}}(x_t)$, it does define a unnormalized probability distribution (EBM) at timestep t. The sequence of score estimates across different time points can then be seen as defining an annealed sequence of distributions starting from Gaussian
-                noise and evolving to our desired distribution $q_{t}^{\textup{prod}}(x_t)$.
-                                Thus, we may still sample from $q_{t}^{\textup{prod}}(x_t)$ using <b>Annealed MCMC</b> procedure, where we initialize a sample from
-                                Gaussian noise, and draw samples sequentially across different intermediate distributions by running multiple steps of MCMC
-                                sampling initialized from samples from the previous distribution. 
-                            </p>
-                            <p>
-                                <b>Energy Based Diffusion Parameterization:</b> In practice, MCMC sampling does not correctly sample from underlying distribution without a Metropolis Adjustment step. With the typical score parameterization of diffusion models,
-                                this is not possible, as there is no unnormalized density associated with the score field. Instead, we propose
-                                to use an energy based parameterization of diffusion model, where at each timestep, our neural network predicts an <b>scalar energy value for each data point</b> and the utilizes the gradient of the energy with respect to the input as the score for the diffusion process. The predicted energy gives us an <b>unnormalized estimate of
-                                the probability density</b>, enabling us to use Metropolis Adjustment in sampling. We further show that
-                                the unnormalized estimate of the density enables us to do additional compositions with a diffusion model.
-                            </p>
-                            <p>
-                                Below, we demonstrate results illustrating how we may use the above tools to re-purpose diffusion models in a variety of different settings. 
-                            </p>
-                        </div>
-            -->
         
     </section>
 
