@@ -423,15 +423,10 @@ pre {
 <script type="text/javascript" src="../js/hidebib.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
     <head>
-        <title> Breadcrumbs to the Goal: Goal-Conditioned Exploration from Human-in-the-Loop Feedback</title>
+        <title>Legibility Diffuser: Offline Imitation for Intent Expressive Motion</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:description" content="Breadcrumbs to the Goal: Goal-Conditioned Exploration from Human-in-the-Loop Feedback"/>
+        <meta property="og:description" content="Legibility Diffuser: Offline Imitation for Intent Expressive Motion"/>
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:creator" content="@marceltornev">
-        <meta name="twitter:title" content="Breadcrumbs to the Goal: Goal-Conditioned Exploration from Human-in-the-Loop Feedback">
-        <meta name="twitter:description" content="">
-        <meta name="twitter:image" content="">
     </head>
 
  <body>
@@ -440,54 +435,38 @@ pre {
 <div class="container">
     <div class="paper-title">
     <h1> 
-        Breadcrumbs to the Goal: Goal-Conditioned Exploration from Human-in-the-Loop Feedback
+        Legibility Diffuser: Offline Imitation for Intent Expressive Motion
     </div>
 
     <div id="authors">
         <center>
             <div class="author-row-new">
-                <a href="https://marceltorne.github.io/">Marcel Torne<sup>1,2</sup></a>,
-                <a href="https://www.linkedin.com/in/max-balsells">Max Balsells<sup>3</sup></a>,
-                <a href="">Zihan Wang<sup>3</sup></a>,
-                <a href="">Samedh Desai<sup>3</sup></a>,
-                <a href="https://taochenshh.github.io">Tao Chen<sup>1</sup></a>,
-                <a href="https://people.eecs.berkeley.edu/~pulkitag/">Pulkit Agrawal<sup>1</sup></a>,
-                <a href="https://abhishekunique.github.io">Abhishek Gupta<sup>3</sup></a>
+                <a href="https://mbronars.github.io/">Matthew Bronars</a>,
+                <a href="https://www.linkedin.com/in/max-balsells">Shuo Cheng<sup>3</sup></a>,
+                <a href="https://abhishekunique.github.io">Danfei Xu<sup>3</sup></a>
             </div>
         </center>
         <center>
         <div class="affiliations">
-            <span><sup>1</sup> Massachusetts Institute of Technology </span>
-            <span><sup>2</sup> Harvard University</span>
-            <span><sup>3</sup> University of Washington</span>
+            <span>Georgia Institute of Technology</span>
         </div>
 
         <div class="affil-row">
-            <div class="venue text-center"><b>NeurIPS 2023 </b></div>
+            <div class="venue text-center"><b>R-AL (under submission)</b></div>
         </div>
 
         </center>
 
         <div style="clear: both">
             <div class="paper-btn-parent">
-            <a class="paper-btn" href="https://arxiv.org/abs/2307.11049">
+            <a class="paper-btn" href="">
                 <span class="material-icons"> description </span> 
                  Paper
             </a>
-            <a class="paper-btn" href="https://github.com/Improbable-AI/human-guided-exploration">
+            <a class="paper-btn" href="">
                 <span class="material-icons"> code </span>
                 Code
-            </a>
-            <a class="paper-btn" href="https://recorder-v3.slideslive.com/?share=88820&s=2fddd0c8-e26a-41cc-8de9-9e8e2ef2001e"  data-toggle="tooltip" title="Use Chrome to watch the video">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-reels" viewBox="0 0 16 16">
-                    <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0M1 3a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/>
-                    <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm6 8.73V7.27l-3.5 1.555v4.35l3.5 1.556zM1 8v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/>
-                    <path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6M7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-                  </svg>
-                Talk
-                </a>
-
-                  
+            </a>  
             </div>
         </div>
     </div>
@@ -521,7 +500,20 @@ pre {
         <h2>Abstract</h2>
         <div class="flex-row">
             <p>
-                Exploration and reward specification are fundamental and intertwined challenges for reinforcement learning. Solving sequential decision making tasks with a non-trivial element of exploration requires either specifying carefully designed reward functions or relying on indiscriminate, novelty seeking exploration bonuses. Human supervisors can provide effective guidance in the loop to direct the exploration process, but prior methods to leverage this guidance require constant synchronous high-quality human feedback, which is expensive and impractical to obtain. In this work, we propose a technique - Human-Guided Exploration (HuGE), that is able to leverage low-quality feedback from non-expert users, which is infrequent, asynchronous and noisy, to guide exploration for reinforcement learning, without requiring careful reward specification. The key idea is to separate the challenges of directed exploration and policy learning - human feedback is used to direct exploration, while self-supervised policy learning is used to independently learn unbiased behaviors from the collected data. We show that this procedure can leverage noisy, asynchronous human feedback to learn tasks with no hand-crafted reward design or exploration bonuses. We show that \Method is able to learn a variety of challenging multi-stage robotic navigation and manipulation tasks in simulation using crowdsourced feedback from non-expert users. Moreover, this paradigm can be scaled to learning directly on real-world robots.
+                In human-robot collaboration, legible motion that
+                conveys a robot’s intentions and goals is known to improve
+                safety, task efficiency, and user experience. Legible robot motion
+                is typically generated using hand-designed cost functions and
+                classical motion planners. However, with the rise of deep
+                learning and data-driven robot policies, we need methods for
+                training end-to-end on offline demonstration data. In this paper,
+                we propose Legibility Diffuser, a diffusion-based policy that
+                learns intent expressive motion directly from human demonstrations. By variably combining the noise predictions from a
+                goal-conditioned diffusion model, we guide the robot’s motion
+                toward the most legible trajectory in the training dataset. We
+                find that decaying the guidance weight over the course of the
+                trajectory is critical for maintaining a high success rate while
+                maximizing legibility.
             </p>
         </div>
     </section>
