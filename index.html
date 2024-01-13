@@ -531,7 +531,7 @@ pre {
         </div>
     </section>
 
-    <section id="abstract">
+    <section id="Method">
         <h2>Method</h2>
         <div class="flex-row">
             <p>
@@ -557,10 +557,10 @@ pre {
         <center>
             <figure>
                 <a>
-                    <img width="100%" src="materials/teaser.png">
+                    <img width="100%" src="materials/LD.png">
                 </a>
                 <p class="caption">
-                    This diagram shows the evaluation process for Legibility Diffuser.  At each step, the model takes as input a sequence of $\tau_s$ states as well as a target goal $g^*$ and an opposing goal $g^-$.  While generating a sequence of actions, we use diffusion model guidance to ensure that we imitate the most legible actions from the training data.  This is controlled by the guidance weight $w_t$ and the ratio term $\alpha$ which determines the portion of negative guidance that goes to $g^-$ versus $\emptyset$.  Once the actions are generated, we carry out $\tau_a$ of the $\tau_p$ predicted actions in open loop.  The guidance weight is decayed by $\gamma$ before generating the next set of actions.
+                    This diagram shows the evaluation process for Legibility Diffuser. At each step, the model takes as input a sequence of \( \tau_s \) states as well as a target goal \( g^* \) and an opposing goal \( g^- \). While generating a sequence of actions, we use diffusion model guidance to ensure that we imitate the most legible actions from the training data. This is controlled by the guidance weight \( w_t \) and the ratio term \( \alpha \) which determines the portion of negative guidance that goes to \( g^- \) versus \( \emptyset \). Once the actions are generated, we carry out \( \tau_a \) of the \( \tau_p \) predicted actions in open loop. The guidance weight is decayed by \( \gamma \) before generating the next set of actions.
                 </p> <br>
             </figure>
 
