@@ -470,6 +470,17 @@ pre {
             </div>
         </div>
     </div>
+    <section id = "project-video">
+        <center>
+            <figure>
+                <video class="centered" width="100%" controls playsinline class="video-background " >
+                    <source src="materials/proj_vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+
+        </center>
+    </section>
     <section id="teaser-image">
         <center>
             <figure>
@@ -498,7 +509,7 @@ pre {
 
 
     
-    <section id="abstract"/>
+    <section id="abstract">
         <h2>Abstract</h2>
         <div class="flex-row">
             <p>
@@ -519,41 +530,59 @@ pre {
             </p>
         </div>
     </section>
-    <section id="method"/>
-        <hr>
+
+    <section id="abstract">
         <h2>Method</h2>
-            <center>
-                <section id="teaser-image">
-                    <center>
-                        <figure>
-                            <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
-                                <source src="materials/huge_detailed++6.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </figure>
-            
-                    </center>
-                </section>
-            </center>
-        
+        <div class="flex-row">
+            <p>
+                In human-robot collaboration, legible motion that
+                conveys a robot’s intentions and goals is known to improve
+                safety, task efficiency, and user experience. Legible robot motion
+                is typically generated using hand-designed cost functions and
+                classical motion planners. However, with the rise of deep
+                learning and data-driven robot policies, we need methods for
+                training end-to-end on offline demonstration data. In this paper,
+                we propose Legibility Diffuser, a diffusion-based policy that
+                learns intent expressive motion directly from human demonstrations. By variably combining the noise predictions from a
+                goal-conditioned diffusion model, we guide the robot’s motion
+                toward the most legible trajectory in the training dataset. We
+                find that decaying the guidance weight over the course of the
+                trajectory is critical for maintaining a high success rate while
+                maximizing legibility.
+            </p>
+        </div>
+    </section>
+
+    <section id="teaser-image">
+        <center>
+            <figure>
+                <a>
+                    <img width="100%" src="materials/teaser.png">
+                </a>
+                <p class="caption">
+                    This diagram shows the evaluation process for Legibility Diffuser.  At each step, the model takes as input a sequence of $\tau_s$ states as well as a target goal $g^*$ and an opposing goal $g^-$.  While generating a sequence of actions, we use diffusion model guidance to ensure that we imitate the most legible actions from the training data.  This is controlled by the guidance weight $w_t$ and the ratio term $\alpha$ which determines the portion of negative guidance that goes to $g^-$ versus $\emptyset$.  Once the actions are generated, we carry out $\tau_a$ of the $\tau_p$ predicted actions in open loop.  The guidance weight is decayed by $\gamma$ before generating the next set of actions.
+                </p> <br>
+            </figure>
+
+        </center>
     </section>
 
 
     <section id="results">
         <hr>
-        <h2>Real World Experiments</h2>
+        <h2>Block Reach Experiments</h2>
         <figure>
             <a>
-                <img width="100%" src="materials/website_figures_real_robot.png">
+                <img width="100%" src="materials/teaser.png">
             </a>
             <p class="caption">
                 Accomplished goals at the end of 5 different evaluation episodes along training in the real world.
             </p> <br>
         </figure>
-        <h2>Simulation Experiments</h2>  
+        <h2>Selective Interaction Experiments</h2>  
             <figure>
                 <a>
-                    <img width="100%" src="materials/website_figures_inline.png">
+                    <img width="100%" src="materials/teaser.png">
                 </a>
                 <p class="caption">
                     Six simulation benchmarks where we test HuGE and compare against baselines. <strong>Bandu</strong>, <strong>Block Stacking</strong>, <strong>Kitchen</strong>, and <strong>Pusher</strong>, are long-horizon manipulation tasks; <strong>Four rooms</strong> and <strong>Maze</strong> are 2D navigation tasks
@@ -561,7 +590,7 @@ pre {
             </figure>
             <figure>
                 <a>
-                    <img width="100%" src="materials/website_figures_success_curves.png">
+                    <img width="100%" src="materials/teaser.png">
                 </a>
                 <p class="caption">
                     Success curves of HuGE on the proposed benchmarks compared to the baselines. 
