@@ -535,20 +535,12 @@ pre {
         <h2>Method</h2>
         <div class="flex-row">
             <p>
-                In human-robot collaboration, legible motion that
-                conveys a robot’s intentions and goals is known to improve
-                safety, task efficiency, and user experience. Legible robot motion
-                is typically generated using hand-designed cost functions and
-                classical motion planners. However, with the rise of deep
-                learning and data-driven robot policies, we need methods for
-                training end-to-end on offline demonstration data. In this paper,
-                we propose Legibility Diffuser, a diffusion-based policy that
-                learns intent expressive motion directly from human demonstrations. By variably combining the noise predictions from a
-                goal-conditioned diffusion model, we guide the robot’s motion
-                toward the most legible trajectory in the training dataset. We
-                find that decaying the guidance weight over the course of the
-                trajectory is critical for maintaining a high success rate while
-                maximizing legibility.
+                This paper establishes a connection between legible motion and conditional generative models.  
+                A critical feature of realistic human demonstrations is that they are multi-task and multi-modal; they show multiple ways of accomplishing a task or reaching a goal.  
+                Our key insight is that we can generate intent expressive motion by directly imitating the most legible mode from a diverse dataset of human demonstrations.  
+                Specifically, we introduce Legibility Diffuser, a conditional generative policy that produces legible robot motion through diffusion model guidance.  
+                Our end-to-end method does not require estimating cost functions, classical motion planning, or any labeling of the training dataset.
+                We evaluate the legibility of our methods across four experiments, including a long-horizon manipulation task, and a real robot evaluation.
             </p>
         </div>
     </section>
@@ -560,10 +552,16 @@ pre {
                     <img width="100%" src="materials/LD.png">
                 </a>
                 <p class="caption">
-                    This diagram shows the evaluation process for Legibility Diffuser. At each step, the model takes as input a sequence of \( \tau_s \) states as well as a target goal \( g^* \) and an opposing goal \( g^- \). While generating a sequence of actions, we use diffusion model guidance to ensure that we imitate the most legible actions from the training data. This is controlled by the guidance weight \( w_t \) and the ratio term \( \alpha \) which determines the portion of negative guidance that goes to \( g^- \) versus \( \emptyset \). Once the actions are generated, we carry out \( \tau_a \) of the \( \tau_p \) predicted actions in open loop. The guidance weight is decayed by \( \gamma \) before generating the next set of actions.
+                    This diagram shows the evaluation process for Legibility Diffuser. 
+                    At each step, the model takes as input a sequence of \( \tau_s \) states as well as a target goal \( g^* \) 
+                    and an opposing goal \( g^- \). While generating a sequence of actions, 
+                    we use diffusion model guidance to ensure that we imitate the most legible actions from the training data. 
+                    This is controlled by the guidance weight \( w_t \) and the ratio term \( \alpha \) 
+                    which determines the portion of negative guidance that goes to \( g^- \) versus \( \emptyset \). 
+                    Once the actions are generated, we carry out \( \tau_a \) of the \( \tau_p \) predicted actions in open loop. 
+                    The guidance weight is decayed by \( \gamma \) before generating the next set of actions.
                 </p> <br>
             </figure>
-
         </center>
     </section>
 
@@ -638,14 +636,42 @@ pre {
     </section> 
     
     <section id="ablations">
-        <hr>
-        <h2>Ablations</h2>
-        <center>
         <figure>
-            <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
-                <source src="materials/huge_explained_rl.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <a>
+                <img width="100%" src="materials/AlphaLeg.png">
+            </a>
+            <p class="caption">
+                We ablate over $\alpha$ while varying guidance weight $w$ 
+                (Refer to methods section).  $\alpha \approx 1$ gives us a high 
+                legibility on both tasks across all of the guidance weights. 
+            </p> <br>
+        </figure>
+        <figure>
+            <a>
+                <img width="100%" src="materials/AlphaSuc.png">
+            </a>
+            <p class="caption">
+                We ablate over $\alpha$ while varying guidance weight $w$ (Refer to methods section). 
+                For most guidance weights, success rate is not particularly sensitive to $\alpha$. 
+            </p> <br>
+        </figure>
+        <figure>
+            <a>
+                <img width="100%" src="materials/GammaLeg.png">
+            </a>
+            <p class="caption">
+                We ablate over $\gamma$ while varying guidance weight $w$ (Eq. \ref{eq: Legibility Guidance}).  
+                $\gamma \rightarrow 1$ leads to higher legibility as long as success rate is maintained. 
+            </p> <br>
+        </figure>
+        <figure>
+            <a>
+                <img width="100%" src="materials/GammaSuc.png">
+            </a>
+            <p class="caption">
+                We ablate over $\gamma$ while varying guidance weight $w$ (Eq. \ref{eq: Legibility Guidance}).  
+                Across all guidance weights we see that success rate decreases as $\gamma \rightarrow 1$. 
+            </p> <br>
         </figure>
 
     </section>
