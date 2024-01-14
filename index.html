@@ -571,15 +571,33 @@ pre {
     <section id="results">
         <hr>
         <h2>Block Reach Experiments</h2>
-        <figure>
-            <a>
-                <img width="100%" src="materials/teaser.png">
-            </a>
-            <p class="caption">
-                Accomplished goals at the end of 5 different evaluation episodes along training in the real world.
-            </p> <br>
-        </figure>
+            <div class="flex-row">
+                <p>
+                    This task is based on a frequently used
+                    legibility experiment [1]. Two blocks are placed next to eachother on a table, a robot arm is positioned on the other end
+                    of the table. The robot reaches for one of the blocks and lifts
+                    it. Assume there is an observer. If the agent moves directly
+                    towards the blocks, it is unclear if the target is the left block
+                    or the right block. If the agent takes a trajectory that swings
+                    wide to one side, then g*
+                    can be easily predicted. These wide
+                    trajectories are the legible trajectories.
+                </p>
+            </div>
+            <figure>
+                <a>
+                    <img width="100%" src="materials/teaser.png">
+                </a>
+                <p class="caption">
+                    Accomplished goals at the end of 5 different evaluation episodes along training in the real world.
+                </p> <br>
+            </figure>
         <h2>Selective Interaction Experiments</h2>  
+            <div class="flex-row">
+                <p>
+                    In this task, there are $m$ objects in a scene {$o_1, o_2, ..., o_m$} and each object has a corresponding goal position.  The robot must move $n < m$ objects to their goal positions (within tolerance $\epsilon_{tol}$).  A goal $g$ can be described by this set of $n$ objects. $g^*$ and $g^-$ have $n-1$ objects in common; there is only one distinguishing object.  We define $o^*$ as the distinguishing object for $g^*$ and $o^-$ as the distinguishing object for $g^-$.  For example, if $g^* = \{o_1, o_2, o_3\}$ and $g^- = \{o_1, o_2, o_4\}$, $o^* = o_3$  and  $o^- = o_4$.  A legible agent \emph{should} interact with $o^*$ early in the trajectory so that an observe can quickly predict the target goal.  A legible agent \emph{should not} interact with $o^-$ as this would confuse the observer, resulting in an incorrect goal prediction.  This task evaluates long horizon legibility. We adapt the Franka Kitchen environment and dataset for selective interaction.
+                </p>
+            </div>
             <figure>
                 <a>
                     <img width="100%" src="materials/teaser.png">
@@ -588,34 +606,40 @@ pre {
                     Six simulation benchmarks where we test HuGE and compare against baselines. <strong>Bandu</strong>, <strong>Block Stacking</strong>, <strong>Kitchen</strong>, and <strong>Pusher</strong>, are long-horizon manipulation tasks; <strong>Four rooms</strong> and <strong>Maze</strong> are 2D navigation tasks
                 </p> <br>
             </figure>
-            <figure>
-                <a>
-                    <img width="100%" src="materials/teaser.png">
-                </a>
-                <p class="caption">
-                    Success curves of HuGE on the proposed benchmarks compared to the baselines. 
-                    HuGE outperforms the rest of the baselines, some of which cannot solve the environment, while converging to the oracle accuracy. 
-                    For those curves that are not visible, it means they never succeeded and hence are all at 0 (see D.9 in the paper for distance curves). 
-                    Note the lexa-like benchmark is only computed in the four rooms benchmark. The curves are the average of 4 runs, and the shaded region corresponds to the standard deviation. 
-                </p> <br>
-            </figure>
-            
 
-        <h2>Crowdsourced Experiments</h2>
+        <h2>Results - Legibility</h2>
         <figure>
             <a>
-                <img width="100%" src="materials/website_figures_crowdsourcing.png">
+                <img width="100%" src="materials/Trajs.png">
             </a>
             <p class="caption">
-                <strong>left</strong>: Crowdsourcing experiment learning curves for the kitchen, <strong>middle</strong>: human annotators spanned 3 continents and 13 countries, <strong>right</strong>: screenshot of the interface for data collection.
+                50 rollouts of Legibiltiy Diffuser and baselines in simulation.  C-Bet and Diffusion Policy capture the entire training data distribution, IBC collapses on an arbitrary mode, Legibility Diffuser collapses on the most legible mode. 
+            </p> <br>
+        </figure>
+        <figure>
+            <a>
+                <img width="100%" src="materials/LegibilityResults.png">
+            </a>
+            <p class="caption">
+                Legibility scores for our model and baselines averaged over $50$ seeds.  These scores are calculated using the legibility heuristics. Block reach real is averaged over $3$ seeds and $30$ demonstrations. 
+            </p> <br>
+        </figure>
+
+        <h2>Results - Success Rate</h2>
+        <figure>
+            <a>
+                <img width="100%" src="materials/SuccessResults.png">
+            </a>
+            <p class="caption">
+                Success rate of our model and baselines averaged over 50 seeds.  For selective interaction we report the average number of object interactions.  Block reach real is averaged over $3$ seeds and $30$ demonstrations. 
             </p> <br>
         </figure>
         
     </section> 
     
-    <section id="robust_noise">
+    <section id="ablations">
         <hr>
-        <h2>Robustness to Learning from Noisy Human Feedback</h2>
+        <h2>Ablations</h2>
         <center>
         <figure>
             <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
