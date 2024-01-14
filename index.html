@@ -586,7 +586,7 @@ pre {
             <div class="flex-row">
                 <p>
                     This task is based on a frequently used
-                    legibility experiment [1]. Two blocks are placed next to eachother on a table, a robot arm is positioned on the other end
+                    legibility experiment. Two blocks are placed next to eachother on a table, a robot arm is positioned on the other end
                     of the table. The robot reaches for one of the blocks and lifts
                     it. Assume there is an observer. If the agent moves directly
                     towards the blocks, it is unclear if the target is the left block
@@ -608,7 +608,7 @@ pre {
         <h2>Selective Interaction Experiments</h2>  
             <div class="flex-row">
                 <p>
-                    In this task, there are $m$ objects in a scene {$o_1, o_2, ..., o_m$} and each object has a corresponding goal position.  The robot must move $n < m$ objects to their goal positions (within tolerance $\epsilon_{tol}$).  A goal $g$ can be described by this set of $n$ objects. $g^*$ and $g^-$ have $n-1$ objects in common; there is only one distinguishing object.  We define $o^*$ as the distinguishing object for $g^*$ and $o^-$ as the distinguishing object for $g^-$.  For example, if $g^* = \{o_1, o_2, o_3\}$ and $g^- = \{o_1, o_2, o_4\}$, $o^* = o_3$  and  $o^- = o_4$.  A legible agent \emph{should} interact with $o^*$ early in the trajectory so that an observe can quickly predict the target goal.  A legible agent \emph{should not} interact with $o^-$ as this would confuse the observer, resulting in an incorrect goal prediction.  This task evaluates long horizon legibility. We adapt the Franka Kitchen environment and dataset for selective interaction.
+                    In this task, there are $m$ objects in a scene {$o_1, o_2, ..., o_m$} and each object has a corresponding goal position.  The robot must move $n < m$ objects to their goal positions (within tolerance $\epsilon_{tol}$).  A goal $g$ can be described by this set of $n$ objects. $g^*$ and $g^-$ have $n-1$ objects in common; there is only one distinguishing object.  We define $o^*$ as the distinguishing object for $g^*$ and $o^-$ as the distinguishing object for $g^-$.  For example, if $g^* = \{o_1, o_2, o_3\}$ and $g^- = \{o_1, o_2, o_4\}$, $o^* = o_3$  and  $o^- = o_4$.  A legible agent should interact with $o^*$ early in the trajectory so that an observe can quickly predict the target goal.  A legible agent should not interact with $o^-$ as this would confuse the observer, resulting in an incorrect goal prediction.  This task evaluates long horizon legibility. We adapt the Franka Kitchen environment and dataset for selective interaction.
                 </p>
             </div>
             <figure>
@@ -676,7 +676,7 @@ pre {
                 <img width="100%" src="materials/GammaLeg.png">
             </a>
             <p class="caption">
-                We ablate over $\gamma$ while varying guidance weight $w$ (Eq. \ref{eq: Legibility Guidance}).  
+                We ablate over $\gamma$ while varying guidance weight $w$ (refer to methods section).  
                 $\gamma \rightarrow 1$ leads to higher legibility as long as success rate is maintained. 
             </p> <br>
         </figure>
@@ -685,7 +685,7 @@ pre {
                 <img width="100%" src="materials/GammaSuc.png">
             </a>
             <p class="caption">
-                We ablate over $\gamma$ while varying guidance weight $w$ (Eq. \ref{eq: Legibility Guidance}).  
+                We ablate over $\gamma$ while varying guidance weight $w$ (refer to methods section).  
                 Across all guidance weights we see that success rate decreases as $\gamma \rightarrow 1$. 
             </p> <br>
         </figure>
